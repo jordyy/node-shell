@@ -4,22 +4,22 @@ process.stdin.on('data', (data) => {
     const cmd = data.toString().trim(); 
     
     if (cmd === 'pwd') { 
-        const pwd = require('./pwd');
-        pwd();
+      const pwd = require('./pwd');
+      pwd();
     } 
 
     if (cmd === 'ls') { 
-        fs.readdir('./', 'utf8', (err, files) => {
-            if(err) {
-                throw err
-            } else {
-                const ls = require('./ls');
-                ls();
-                process.stdout.write("prompt > "); 
-            }
-        })
+      const ls = require('./ls');
+      ls();
     } 
 
-    
+    if (cmd.includes('cat')) {
+      //cat bash.js
+      let arg = cmd.split(' ')
+      //arg = ['cat', 'bash.js']
+      const cat = require('./cat');
+      cat(arg[1]);
+    }
+
     process.stdout.write('\nprompt > ');  
   });
