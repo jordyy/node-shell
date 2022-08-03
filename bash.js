@@ -21,5 +21,11 @@ process.stdin.on('data', (data) => {
       cat(arg[1]);
     }
 
+    if (cmd.includes('curl')) {
+        let arg = cmd.split(' ')
+        const curl = require('./curl'); 
+        curl(arg[1]); 
+    }
+
     process.stdout.write('\nprompt > ');  
   });
