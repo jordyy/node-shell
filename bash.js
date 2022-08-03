@@ -1,12 +1,15 @@
-process.stdout.write('prompt > '); 
+// process.stdout.write('prompt > '); 
 
-process.stdin.on('data', (data) => {
-    const cmd = data.toString().trim(); 
-    const pwdOP = console.log(process.cwd());
-
-    if (data === 'pwd') { 
-        process.stdout.write(console.log(process.cwd()));
-    }  
+// process.stdin.on('data', (data) => {
+//     const cmd = data.toString().trim(); 
     
-    process.stdout.write('\nprompt > ');
-});
+//     if (cmd === 'pwd') { 
+//         process.stdout.write(process.cwd());
+//     }  
+    
+//     process.stdout.write('\nprompt > ');
+// });
+
+let pwd = require('./pwd')
+
+console.log(pwd)
